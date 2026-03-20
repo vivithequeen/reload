@@ -12,12 +12,12 @@
 <div class="page">
   <div class="border-strip left"></div>
   <div class="border-strip right"></div>
-
+  <a href = "https://hackclub.com"><img class="hack-icon" src={flagImg} alt="Hack Club" /></a>
   <header>
-    <img class="hack-icon" src={flagImg} alt="Hack Club" />
+    
     <img class="title-img" src={titleImg} alt="RELOAD" />
     <p class="subtitle">
-      CODE XX HOURS ON A RETRO PROJECT, COME SHOW YOUR PROJECT OFF AT A RETRO GAME CONVENTION!
+      CODE XX HOURS ON A RETRO PROJECT, COME SHOW YOUR PROJECT OFF AT A RETRO GAME CONV3ENTION!
     </p>
   </header>
 
@@ -40,7 +40,7 @@
           <p>MAKE YOUR LEVELS IN TRENCHBROOM AND GET A STICKER!!!</p>
         </div>
         <div class="img-col">
-          <img src={stickerImg} alt="Dino sticker" />
+          <img src={stickerImg} alt="orpheous" />
         </div>
       </div>
 
@@ -52,7 +52,7 @@
         </div>
         <div class="img-col">
           <img class="pixel" src={houseImg} alt="3D software renderer output" />
-          <span class="caption">3D renderer made by sneb for Sprig by noob!</span>
+          <span class="caption">3D renderer made by noob for Sprig!</span>
         </div>
       </div>
     </section>
@@ -65,8 +65,7 @@
   <footer>
     <img src={cuttout1} alt="" class="footer-cutout" aria-hidden="true" />
     <div class="footer-text">
-      <p>made with &lt;3 by violet</p>
-      <p>sticker art by moth</p>
+      <p>made with &lt;3 by violet and moth</p>
     </div>
     <img src={cuttout2} alt="" class="footer-cutout" aria-hidden="true" />
   </footer>
@@ -128,8 +127,8 @@
   .hack-icon {
     position: absolute;
     top: 0;
-    left: 24px;
-    width: 140px;
+    left: 50px;
+    width: 200px;
   }
 
   .title-img {
@@ -140,7 +139,7 @@
   }
 
   .subtitle {
-    font-size: 20px;
+    font-size: 30px;
     line-height: 2;
     text-align: center;
     margin: 24px 0 32px;
@@ -201,7 +200,7 @@
   .img-col img.pixel { image-rendering: pixelated; }
 
   .caption {
-    font-size: 14px;
+    font-size: 35px;
     color: #8a7fa0;
     text-align: center;
     line-height: 1.8;
@@ -210,7 +209,7 @@
   .text-col { flex: 1; }
 
   .text-col p {
-    font-size: 22px;
+    font-size: 30px;
     line-height: 2.2;
     text-align: center;
     margin: 0;
@@ -219,7 +218,7 @@
   }
 
   .or {
-    font-size: 48px;
+    font-size: 55px;
     text-align: center;
     margin: 0;
     color: #e8dff5;
@@ -268,7 +267,7 @@
   .footer-cutout { width: 160px; }
 
   .footer-text {
-    font-size: 18px;
+    font-size: 30px;
     line-height: 2.2;
     text-align: center;
     color: #e8dff5;
