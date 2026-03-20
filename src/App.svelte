@@ -1,6 +1,5 @@
 <script>
   import flagImg from './assets/flag-orpheus-top.svg';
-  import borderImg from './assets/border.png';
   import titleImg from './assets/title.png';
   import waveImg from './assets/wave.png';
   import doomImg from './assets/doom.png';
@@ -11,21 +10,20 @@
 </script>
 
 <div class="page">
-  <div class="side-wave left">
-    <img src={borderImg} alt="" aria-hidden="true" />
-  </div>
+  <div class="border-strip left"></div>
+  <div class="border-strip right"></div>
+
+  <header>
+    <img class="hack-icon" src={flagImg} alt="Hack Club" />
+    <img class="title-img" src={titleImg} alt="RELOAD" />
+    <p class="subtitle">
+      CODE XX HOURS ON A RETRO PROJECT, COME SHOW YOUR PROJECT OFF AT A RETRO GAME CONVENTION!
+    </p>
+  </header>
+
+  <img class="wave-divider" src={waveImg} alt="" aria-hidden="true" />
 
   <main>
-    <header>
-      <img class="hack-icon" src={flagImg} alt="Hack Club" />
-      <img class="title-img" src={titleImg} alt="RELOAD" />
-      <p class="subtitle">
-        CODE XX HOURS ON A RETRO PROJECT, COME SHOW YOUR PROJECT OFF AT A RETRO GAME CONVENTION!
-      </p>
-    </header>
-
-    <img class="wave-divider" src={waveImg} alt="" aria-hidden="true" />
-
     <section class="content">
       <div class="row">
         <div class="img-col">
@@ -54,7 +52,7 @@
         </div>
         <div class="img-col">
           <img class="pixel" src={houseImg} alt="3D software renderer output" />
-          <span class="caption">3D renderer made by sneb for Sprig by hackl!</span>
+          <span class="caption">3D renderer made by sneb for Sprig by noob!</span>
         </div>
       </div>
     </section>
@@ -62,24 +60,20 @@
     <div class="submit-area">
       <button>submit</button>
     </div>
-
-    <footer>
-      <img src={cuttout1} alt="" class="footer-cutout" aria-hidden="true" />
-      <div class="footer-text">
-        <p>made with &lt;3 by violet</p>
-        <p>sticker art by moth</p>
-      </div>
-      <img src={cuttout2} alt="" class="footer-cutout" aria-hidden="true" />
-    </footer>
   </main>
 
-  <div class="side-wave right">
-    <img src={borderImg} alt="" aria-hidden="true" />
-  </div>
+  <footer>
+    <img src={cuttout1} alt="" class="footer-cutout" aria-hidden="true" />
+    <div class="footer-text">
+      <p>made with &lt;3 by violet</p>
+      <p>sticker art by moth</p>
+    </div>
+    <img src={cuttout2} alt="" class="footer-cutout" aria-hidden="true" />
+  </footer>
 </div>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Micro+5&display=swap');
 
   :global(*, *::before, *::after) {
     box-sizing: border-box;
@@ -87,51 +81,40 @@
 
   :global(body) {
     margin: 0;
-    background: #0f0d18;
-    font-family: 'Press Start 2P', monospace;
+    background: #1a1e32;
+    font-family: 'Micro 5', monospace;
     color: #e8dff5;
   }
 
+  /* --- Page grid ---
+     Columns: left-border | content | right-border
+     Rows:    header | wave | main-content | footer
+  */
   .page {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: 48px 1fr 48px;
+    grid-template-rows: auto auto 1fr auto;
     min-height: 100vh;
   }
 
-  /* --- Side borders --- */
-  .side-wave {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    width: 48px;
-    overflow: hidden;
-    z-index: 10;
-  }
-
-  .side-wave.left { left: 0; }
-  .side-wave.right { right: 0; }
-
-  .side-wave img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top;
-    display: block;
+  /* --- Borders: span all 4 rows --- */
+  .border-strip {
+    grid-row: 1 / 5;
+    background-image: url('./assets/border.png');
+    background-repeat: repeat-y;
+    background-size: 48px auto;
     image-rendering: pixelated;
+    position: relative;
+    z-index: 2;
   }
 
-  /* --- Main column --- */
-  main {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 0 48px 48px;
-    box-sizing: border-box;
-  }
+  .border-strip.left  { grid-column: 1; }
+  .border-strip.right { grid-column: 3; transform: scaleX(-1); }
 
-  /* --- Header --- */
+  /* --- Header: row 1, center column --- */
   header {
+    grid-column: 2;
+    grid-row: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -139,8 +122,7 @@
     position: relative;
     max-width: 900px;
     width: 100%;
-    align-self: center;
-    box-sizing: border-box;
+    justify-self: center;
   }
 
   .hack-icon {
@@ -158,7 +140,7 @@
   }
 
   .subtitle {
-    font-size: 10px;
+    font-size: 20px;
     line-height: 2;
     text-align: center;
     margin: 24px 0 32px;
@@ -166,12 +148,24 @@
     max-width: 560px;
   }
 
-  /* --- Wave divider --- */
+  /* --- Wave: row 2, all columns --- */
   .wave-divider {
+    grid-column: 1 / 4;
+    grid-row: 2;
     width: 100%;
     display: block;
-    margin: 0;
     image-rendering: pixelated;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* --- Main content: row 3, center column --- */
+  main {
+    grid-column: 2;
+    grid-row: 3;
+    display: flex;
+    flex-direction: column;
+    padding: 0 48px 48px;
   }
 
   /* --- Content rows --- */
@@ -183,17 +177,12 @@
     max-width: 900px;
     width: 100%;
     align-self: center;
-    box-sizing: border-box;
   }
 
   .row {
     display: flex;
     align-items: center;
     gap: 40px;
-  }
-
-  .row.reverse {
-    flex-direction: row-reverse;
   }
 
   .img-col {
@@ -209,23 +198,19 @@
     display: block;
   }
 
-  .img-col img.pixel {
-    image-rendering: pixelated;
-  }
+  .img-col img.pixel { image-rendering: pixelated; }
 
   .caption {
-    font-size: 7px;
+    font-size: 14px;
     color: #8a7fa0;
     text-align: center;
     line-height: 1.8;
   }
 
-  .text-col {
-    flex: 1;
-  }
+  .text-col { flex: 1; }
 
   .text-col p {
-    font-size: 12px;
+    font-size: 22px;
     line-height: 2.2;
     text-align: center;
     margin: 0;
@@ -234,7 +219,7 @@
   }
 
   .or {
-    font-size: 28px;
+    font-size: 48px;
     text-align: center;
     margin: 0;
     color: #e8dff5;
@@ -244,52 +229,50 @@
   .submit-area {
     display: flex;
     justify-content: center;
-    padding: 48px 40px 24px;
+    padding: 48px 40px;
     max-width: 900px;
     width: 100%;
     align-self: center;
-    box-sizing: border-box;
   }
 
   button {
-    font-family: 'Press Start 2P', monospace;
-    font-size: 16px;
+    font-family: 'Micro 5', monospace;
+    font-size: 48px;
     color: #e8dff5;
     background: transparent;
-    border: 2px solid #e8dff5;
-    padding: 18px 72px;
+    border: 3px solid #c44444;
+    padding: 18px 96px;
     cursor: pointer;
     letter-spacing: 0.05em;
     transition: background 0.15s, color 0.15s;
   }
 
   button:hover {
-    background: #e8dff5;
-    color: #0f0d18;
+    background: #c44444;
+    color: #e8dff5;
   }
 
-  /* --- Footer --- */
+  /* --- Footer: row 4, all columns --- */
   footer {
+    grid-column: 1 / 4;
+    grid-row: 4;
+    background: #0d1020;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 24px 40px 0;
-    margin-top: auto;
+    padding: 32px 40px;
+    position: relative;
+    z-index: 1;
   }
 
-  .footer-cutout {
-    width: 100px;
-    opacity: 0.85;
-  }
+  .footer-cutout { width: 160px; }
 
   .footer-text {
-    font-size: 9px;
-    line-height: 2;
+    font-size: 18px;
+    line-height: 2.2;
     text-align: center;
-    color: #8a7fa0;
+    color: #e8dff5;
   }
 
-  .footer-text p {
-    margin: 0;
-  }
+  .footer-text p { margin: 0; }
 </style>
