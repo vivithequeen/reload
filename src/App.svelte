@@ -7,6 +7,10 @@
   import houseImg from './assets/house.png';
   import cuttout1 from './assets/cuttout1.png';
   import cuttout2 from './assets/cuttout2.png';
+  import cuttout3 from './assets/cuttout3.png';
+  import cuttout4 from './assets/cuttout4.png';
+  import cuttout5 from './assets/cuttout5.png';
+  import cuttout6 from './assets/cuttout6.png';
   import crtImg from './assets/crt.jpg';
   import doom2Img from './assets/doom2butnot2.png';
   import sticker2Img from './assets/sticker2.png';
@@ -17,7 +21,10 @@
   <div class="border-strip right"></div>
   <a href = "https://hackclub.com"><img class="hack-icon" src={flagImg} alt="Hack Club" /></a>
   <header>
-    
+    <img src={cuttout6} alt="" class="deco deco-tl" aria-hidden="true" />
+    <img src={cuttout5} alt="" class="deco deco-tr" aria-hidden="true" />
+    <img src={cuttout3} alt="" class="deco deco-bl" aria-hidden="true" />
+    <img src={cuttout4} alt="" class="deco deco-br" aria-hidden="true" />
     <img class="title-img" src={titleImg} alt="RELOAD" />
     <p class="subtitle">
       CODE XX HOURS ON A RETRO PROJECT, COME SHOW YOUR PROJECT OFF AT A RETRO GAME CONVENTION!
@@ -47,7 +54,11 @@
         </div>
       </div>
 
-      <p class="or">OR...</p>
+      <p class="or">
+        <img src={cuttout1} alt="" class="or-deco" aria-hidden="true" />
+        OR...
+        <img src={cuttout2} alt="" class="or-deco" aria-hidden="true" />
+      </p>
 
       <div class="row">
         <div class="img-col">
@@ -55,12 +66,16 @@
           <span class="caption">3D renderer made by noob for Sprig!</span>
         </div>
         <div class="text-col">
-          <p>MAKE A SOFTWARE RENDERER!!</p>
+          <p>MAKE A SOFTWARE RENDERER!! Software rendering techniques like raycasters and projection mapping are really cool and fun!!</p>
         </div>
 
       </div>
 
-      <p class="or">AND...</p>
+      <p class="or">
+        <img src={cuttout5} alt="" class="or-deco" aria-hidden="true" />
+        AND...
+        <img src={cuttout6} alt="" class="or-deco" aria-hidden="true" />
+      </p>
 
       <div class="row">
         <div class="text-col">
@@ -199,6 +214,31 @@
     justify-self: center;
   }
 
+  .deco {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .deco-tl { width: 155px; top: -30px; left: -10px; transform: rotate(37deg); opacity: 0.45; }
+  .deco-tr { width: 85px; top: 8px; right: -8px; transform: rotate(-73deg); opacity: 0.6; }
+  .deco-bl { width: 170px; bottom: -50px; left: 60px; transform: rotate(-22deg); opacity: 0.35; }
+  .deco-br { width: 110px; bottom: 10px; right: -20px; transform: rotate(55deg); opacity: 0.5; }
+
+  .or-deco {
+    width: 60px;
+    opacity: 0.5;
+    vertical-align: middle;
+    margin: 0 16px;
+    transform: rotate(-30deg);
+    display: inline-block;
+  }
+
+  .or-deco:last-child {
+    transform: rotate(62deg);
+    width: 50px;
+  }
+
   .hack-icon {
     position: absolute;
     top: 0;
@@ -270,6 +310,7 @@
   .img-col img {
     width: 100%;
     display: block;
+    border: 2px solid #A24C4C;
   }
 
   .img-col img.pixel { image-rendering: pixelated; }
@@ -321,7 +362,7 @@
   .gallery-card {
     flex: 1;
     background: #12162a;
-    border: 2px solid #1e2340;
+    border: 2px solid #A24C4C;
     display: flex;
     flex-direction: column;
   }
@@ -329,7 +370,7 @@
   .prize-img-wrap {
     width: 100%;
     aspect-ratio: 4 / 3;
-    background: #0d1020;
+    background: #191B2A;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -340,6 +381,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top;
     display: block;
   }
 
@@ -355,7 +397,7 @@
 
   .prize-text {
     padding: 16px;
-    border-top: 2px solid #1e2340;
+    border-top: 2px solid #A24C4C;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -395,6 +437,15 @@
     margin: 0;
     color: #8a7fa0;
     line-height: 1.8;
+  }
+
+  .faq-a a {
+    color: #c44444;
+    text-decoration: underline;
+  }
+
+  .faq-a a:hover {
+    color: #e86060;
   }
 
   /* --- Submit --- */
