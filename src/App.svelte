@@ -17,7 +17,7 @@
     
     <img class="title-img" src={titleImg} alt="RELOAD" />
     <p class="subtitle">
-      CODE XX HOURS ON A RETRO PROJECT, COME SHOW YOUR PROJECT OFF AT A RETRO GAME CONV3ENTION!
+      CODE XX HOURS ON A RETRO PROJECT, COME SHOW YOUR PROJECT OFF AT A RETRO GAME CONVENTION!
     </p>
   </header>
 
@@ -53,6 +53,46 @@
         <div class="img-col">
           <img class="pixel" src={houseImg} alt="3D software renderer output" />
           <span class="caption">3D renderer made by noob for Sprig!</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery">
+      <div class="gallery-row">
+        <div class="gallery-card prize-card">
+          <div class="gallery-placeholder"></div>
+          <div class="prize-text">
+            <p class="prize-title">DOOM 1993</p>
+            <p class="prize-desc">Steam key (or if you can find a physical copy thats sick)</p>
+          </div>
+        </div>
+        <div class="gallery-card prize-card">
+          <div class="gallery-placeholder"></div>
+          <div class="prize-text">
+            <p class="prize-title">YOUR OWN CRT</p>
+            <p class="prize-desc">get your own cathode ray tube tv!!</p>
+          </div>
+        </div>
+        <div class="gallery-card prize-card">
+          <div class="gallery-placeholder"></div>
+          <div class="prize-text">
+            <p class="prize-title">PRIZE NAME</p>
+            <p class="prize-desc">Prize description goes here</p>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-row">
+        <div class="gallery-card faq-card">
+          <p class="faq-q">QUESTION?</p>
+          <p class="faq-a">Answer goes here.</p>
+        </div>
+        <div class="gallery-card faq-card">
+          <p class="faq-q">QUESTION?</p>
+          <p class="faq-a">Answer goes here.</p>
+        </div>
+        <div class="gallery-card faq-card">
+          <p class="faq-q">QUESTION?</p>
+          <p class="faq-a">Answer goes here.</p>
         </div>
       </div>
     </section>
@@ -222,6 +262,77 @@
     text-align: center;
     margin: 0;
     color: #e8dff5;
+  }
+
+  /* --- Gallery --- */
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 0 48px;
+    width: 100%;
+  }
+
+  .gallery-row {
+    display: flex;
+    gap: 24px;
+    padding: 0 24px;
+  }
+
+  .gallery-card {
+    flex: 1;
+    background: #12162a;
+    padding: 16px;
+  }
+
+  .gallery-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #d8d4e0;
+  }
+
+  .prize-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .prize-text {
+    padding: 12px 4px 4px;
+  }
+
+  .prize-title {
+    font-size: 28px;
+    margin: 0 0 4px;
+    color: #e8dff5;
+    text-transform: uppercase;
+  }
+
+  .prize-desc {
+    font-size: 20px;
+    margin: 0;
+    color: #8a7fa0;
+    line-height: 1.6;
+  }
+
+  .faq-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .faq-q {
+    font-size: 26px;
+    margin: 0;
+    color: #e8dff5;
+    text-transform: uppercase;
+  }
+
+  .faq-a {
+    font-size: 20px;
+    margin: 0;
+    color: #8a7fa0;
+    line-height: 1.8;
   }
 
   /* --- Submit --- */
