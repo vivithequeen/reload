@@ -2,11 +2,14 @@
   import flagImg from './assets/flag-orpheus-top.svg';
   import titleImg from './assets/title.png';
   import waveImg from './assets/wave.png';
-  import doomImg from './assets/doom.png';
+  import doomImg from './assets/doom.gif';
   import stickerImg from './assets/sticker.png';
   import houseImg from './assets/house.png';
   import cuttout1 from './assets/cuttout1.png';
   import cuttout2 from './assets/cuttout2.png';
+  import crtImg from './assets/crt.jpg';
+  import doom2Img from './assets/doom2butnot2.png';
+  import sticker2Img from './assets/sticker2.png';
 </script>
 
 <div class="page">
@@ -47,12 +50,30 @@
       <p class="or">OR...</p>
 
       <div class="row">
-        <div class="text-col">
-          <p>MAKE A SOFTWARE RENDERER!!</p>
-        </div>
         <div class="img-col">
           <img class="pixel" src={houseImg} alt="3D software renderer output" />
           <span class="caption">3D renderer made by noob for Sprig!</span>
+        </div>
+        <div class="text-col">
+          <p>MAKE A SOFTWARE RENDERER!!</p>
+        </div>
+
+      </div>
+
+      <p class="or">AND...</p>
+
+      <div class="row">
+        <div class="text-col">
+          <p class="big">FLY OUT TO XXX AND SHOW OFF YOUR GAME AT A RETRO GAMING CONVENTION!</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <p class="or">PRIZES</p>
+      <div class="row">
+        <div class="text-col">
+          <p>CAN'T MAKE IT? GRAB SOMETHING FROM THE SHOP!!!</p>
         </div>
       </div>
     </section>
@@ -60,39 +81,53 @@
     <section class="gallery">
       <div class="gallery-row">
         <div class="gallery-card prize-card">
-          <div class="gallery-placeholder"></div>
+          <div class="prize-img-wrap">
+            <img src={doom2Img} alt="Doom 2 but not Doom 2" class="prize-img" />
+          </div>
           <div class="prize-text">
             <p class="prize-title">DOOM 1993</p>
             <p class="prize-desc">Steam key (or if you can find a physical copy thats sick)</p>
           </div>
         </div>
         <div class="gallery-card prize-card">
-          <div class="gallery-placeholder"></div>
+          <div class="prize-img-wrap">
+            <img src={crtImg} alt="CRT TV" class="prize-img" />
+          </div>
           <div class="prize-text">
             <p class="prize-title">YOUR OWN CRT</p>
-            <p class="prize-desc">get your own cathode ray tube tv!!</p>
+            <p class="prize-desc">get your own cathode ray tube monitor!!</p>
           </div>
         </div>
         <div class="gallery-card prize-card">
-          <div class="gallery-placeholder"></div>
+          <div class="prize-img-wrap">
+            <img src={sticker2Img} alt="Sticker" class="prize-img contain" />
+          </div>
           <div class="prize-text">
-            <p class="prize-title">PRIZE NAME</p>
-            <p class="prize-desc">Prize description goes here</p>
+            <p class="prize-title">STICKERS!!</p>
+            <p class="prize-desc">get some stickers!!</p>
           </div>
         </div>
       </div>
+    </section>
+
+    <section class="content">
+      <p class="or">FAQ</p>
+    </section>
+
+    <section class="gallery">
       <div class="gallery-row">
         <div class="gallery-card faq-card">
-          <p class="faq-q">QUESTION?</p>
-          <p class="faq-a">Answer goes here.</p>
+          <p class="faq-q">What the freak is trenchbroom?</p>
+          <p class="faq-a"><a href="https://trenchbroom.github.io/">Trenchbroom</a> is a opensorce level editing software made for quake and has support for many games and game engines, such as <a href="https://github.com/func-godot">godot</a>(:D).</p>
         </div>
         <div class="gallery-card faq-card">
-          <p class="faq-q">QUESTION?</p>
-          <p class="faq-a">Answer goes here.</p>
+          <p class="faq-q">WHERE IS IT GOING TO BE?</p>
+          <p class="faq-a">Undecided atm, will be contacting conventions taking place over september and october :).</p>
         </div>
         <div class="gallery-card faq-card">
-          <p class="faq-q">QUESTION?</p>
-          <p class="faq-a">Answer goes here.</p>
+          <p class="faq-q">WHAT CAN I MAKE PROJECTS IN?</p>
+          <p class="faq-a">- any game engine.</p>
+          <p class="faq-a"> -any langauge with graphics api bindings</p>
         </div>
       </div>
     </section>
@@ -168,7 +203,7 @@
     position: absolute;
     top: 0;
     left: 50px;
-    width: 200px;
+    width: 180px;
   }
 
   .title-img {
@@ -240,13 +275,17 @@
   .img-col img.pixel { image-rendering: pixelated; }
 
   .caption {
-    font-size: 35px;
+    font-size: 30px;
     color: #8a7fa0;
     text-align: center;
     line-height: 1.8;
   }
 
   .text-col { flex: 1; }
+
+  .text-col p.big {
+    font-size: 60px;
+  }
 
   .text-col p {
     font-size: 30px;
@@ -282,28 +321,50 @@
   .gallery-card {
     flex: 1;
     background: #12162a;
-    padding: 16px;
+    border: 2px solid #1e2340;
+    display: flex;
+    flex-direction: column;
   }
 
-  .gallery-placeholder {
+  .prize-img-wrap {
     width: 100%;
-    aspect-ratio: 16 / 9;
-    background: #d8d4e0;
+    aspect-ratio: 4 / 3;
+    background: #0d1020;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .prize-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .prize-img.contain {
+    object-fit: contain;
+    padding: 16px;
   }
 
   .prize-card {
     display: flex;
     flex-direction: column;
-    gap: 0;
   }
 
   .prize-text {
-    padding: 12px 4px 4px;
+    padding: 16px;
+    border-top: 2px solid #1e2340;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
   }
 
   .prize-title {
     font-size: 28px;
-    margin: 0 0 4px;
+    margin: 0;
     color: #e8dff5;
     text-transform: uppercase;
   }
@@ -319,6 +380,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    padding: 20px;
   }
 
   .faq-q {
