@@ -27,7 +27,7 @@
     <img src={cuttout4} alt="" class="deco deco-br" aria-hidden="true" />
     <img class="title-img" src={titleImg} alt="RELOAD" />
     <p class="subtitle">
-      CODE XX HOURS ON A RETRO PROJECT, COME SHOW YOUR PROJECT OFF AT A RETRO GAME CONVENTION!
+      MAKE A RETRO PROJECT AND COME SHOW YOUR PROJECT OFF AT A RETRO GAME CONVENTION!
     </p>
   </header>
 
@@ -164,6 +164,11 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Micro+5&display=swap');
 
+  @font-face {
+    font-family: 'art-w';
+    src: url('/ari-w9500.ttf') format('truetype');
+  }
+
   :global(*, *::before, *::after) {
     box-sizing: border-box;
   }
@@ -171,7 +176,7 @@
   :global(body) {
     margin: 0;
     background: #1a1e32;
-    font-family: 'Micro 5', monospace;
+    font-family: 'art-w', monospace;
     color: #e8dff5;
   }
 
@@ -214,29 +219,39 @@
     justify-self: center;
   }
 
+  @keyframes spin-cw {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  @keyframes spin-ccw {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(-360deg); }
+  }
+
   .deco {
     position: absolute;
     pointer-events: none;
     user-select: none;
   }
 
-  .deco-tl { width: 155px; top: -30px; left: -10px; transform: rotate(37deg); opacity: 0.45; }
-  .deco-tr { width: 85px; top: 8px; right: -8px; transform: rotate(-73deg); opacity: 0.6; }
-  .deco-bl { width: 170px; bottom: -50px; left: 60px; transform: rotate(-22deg); opacity: 0.35; }
-  .deco-br { width: 110px; bottom: 10px; right: -20px; transform: rotate(55deg); opacity: 0.5; }
+  .deco-tl { width: 155px; top: -30px; left: -10px; opacity: 0.45; animation: spin-ccw 18s linear infinite; }
+  .deco-tr { width: 85px; top: 8px; right: -8px; opacity: 0.6; animation: spin-cw 12s linear infinite; }
+  .deco-bl { width: 170px; bottom: -50px; left: 60px; opacity: 0.35; animation: spin-cw 22s linear infinite; }
+  .deco-br { width: 110px; bottom: 10px; right: -20px; opacity: 0.5; animation: spin-ccw 15s linear infinite; }
 
   .or-deco {
     width: 60px;
     opacity: 0.5;
     vertical-align: middle;
     margin: 0 16px;
-    transform: rotate(-30deg);
     display: inline-block;
+    animation: spin-cw 10s linear infinite;
   }
 
   .or-deco:last-child {
-    transform: rotate(62deg);
     width: 50px;
+    animation: spin-ccw 14s linear infinite;
   }
 
   .hack-icon {
